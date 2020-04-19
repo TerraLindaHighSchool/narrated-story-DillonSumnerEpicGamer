@@ -1,4 +1,4 @@
-import greenfoot.*;
+;import greenfoot.*;
 
 /**
  * A Counter class that allows you to display a numerical value on screen.
@@ -16,11 +16,23 @@ public class Button extends Actor
     private GreenfootImage background;
     private String prefix;
     
+    private GreenfootSound narration;
+    
     public Button()
     {
         this("Click to Begin Story");
+       narration = new GreenfootSound ("SoundScriptJava.wav");
     }
-
+    
+    public void act()
+    {
+        if(Greenfoot.mouseClicked(this) && !narration.isPlaying())
+        {
+            narration.play();
+            
+        }
+    }
+    
     /**
      * Create a button for later use to initialize the narration.
      */
